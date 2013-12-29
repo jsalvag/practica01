@@ -1,0 +1,254 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: white;
+	font-family: monospace;
+}
+body{
+	background-color: black;
+	text-align: center;
+	text-shadow: 1px 1px 3px lightblue;
+}
+
+input, textarea{
+	/*background-color: #696969;*/
+	color: #696969;
+	text-shadow: 1px 1px 3px #000;
+	font-weight: bolder;
+}
+
+#cuerpo{
+	margin: auto;
+	width: 90%;
+	max-width: 800px;
+}
+
+/*Estilos del Header*/
+header{
+}
+#A{
+	color: yellow;
+}
+
+#K{
+	color: blue;
+}
+
+#I{
+	color: red;
+}
+
+h1{
+	padding-top: 50px;
+	font-size: 60px;
+}
+
+#login{
+	float: right;
+	text-align: right;
+}
+
+#logo{
+	width: 150px;
+}
+
+#logo img{
+	width: 100%;
+}
+
+div#logolink{
+	/*background-color: rgba(255,255,255,.1);*/
+	width: 100px;
+	height: 80px;
+	position: absolute;
+}
+
+#menu{
+	/*background-color: rgba(255,255,255,.1);*/
+}
+
+#menu ul li{
+	/*background-color: rgba(255,255,255,.1);*/
+	display: inline-block;
+	border: 1px solid #fff;
+	width: calc(25% - 6px);
+}
+
+/*Estilos de la seccion principal*/
+
+section#principal{
+	/*background-color: rgba(255,255,200,.1);*/
+}
+
+aside{
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+}
+
+div#contenido{
+	/*background-color: rgba(255,255,200,.1);*/
+	display: inline-block;
+	vertical-align: top;
+	width: calc(100% - 210px);
+	margin: auto;
+}
+
+ul li a{
+	display: block;
+	background-color: rgba(255,255,255,.2);
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+ul li a:hover{
+	background-color: rgba(255,255,255,.8);
+	color: black;
+	text-shadow: 1px 0px 3px black;
+	box-shadow: inset 0 0 8px black;
+	-webkit-transform: scale(.98,.98);
+	-moz-transform: scale(.98,.98);
+	-ms-transform: scale(.98,.98);
+	-o-transform: scale(.98,.98);
+	transform: scale(.98,.98);
+}
+
+div#alfa{
+	/*background-color: rgba(255,255,200,.1);*/
+	width: 100%;
+}
+
+div.alfa{
+	border: 3px solid white;
+	margin: 2.5px;
+	width: calc(33.333% - 5px);
+	min-width: 75px;
+	border-radius: 5px;
+	z-index: 3;
+	opacity: .8;
+	display: inline-block;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+	overflow: hidden;
+}
+
+div.alfa:hover{
+	z-index: 5;
+	opacity: 1;
+	-webkit-transform: scale(1.3,1.3);
+	-moz-transform: scale(1.3,1.3);
+	-ms-transform: scale(1.3,1.3);
+	-o-transform: scale(1.3,1.3);
+	transform: scale(1.3,1.3);
+	-webkit-box-shadow: 0 0 15px white;
+	-moz-box-shadow: 0 0 15px white;
+	box-shadow: 0 0 15px white;
+}
+
+div#beta{
+	/*background-color: rgba(255,200,255,.1);*/
+	width: 100%;
+}
+
+div.beta{
+	border: 2px solid white;
+	margin: 2.5px;
+	display: inline-block;
+	width: calc(20% - 5px);
+	min-width: 40px;
+	text-shadow: 0 0 5px #000;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+	overflow: hidden;
+}
+
+div.beta:hover{
+	z-index: 5;
+	opacity: 1;
+	-webkit-transform: scale(3,3);
+	-moz-transform: scale(3,3);
+	-ms-transform: scale(3,3);
+	-o-transform: scale(3,3);
+	transform: scale(3,3);
+	-webkit-box-shadow: 0 0 15px white;
+	-moz-box-shadow: 0 0 15px white;
+	box-shadow: 0 0 15px white;
+}
+
+.imagencliente{
+	display: inline;
+	width: 100%;
+	margin-bottom: -20px;
+}
+.textoalfa{
+	background-color: rgba(0,0,0,.5);
+	color: black;
+	position: relative;
+	bottom: 0px;
+}
+.textobeta{
+	background-color: rgba(0,0,0,.5);
+	position: relative;
+	top: 0px;
+}
+
+label{
+	vertical-align: top;
+}
+
+table, td, th, tr{
+	border: 1px solid #fff;
+	vertical-align: middle;
+	text-align: right;
+}
+tr td input{
+	width: 100%;
+	vertical-align: middle;
+}
+
+.icono{
+	text-align: left;
+	vertical-align: middle;
+	background-color: rgba(0,0,0,0);
+}
+.cometico, .icono img{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+aside ul li{
+	border: 1px solid #fff;
+	border-radius: 0px 10px;
+	margin: 2.5px;
+}
+
+/*Diseño de la caja de registro de usuario*/
+.registro_caja{
+	display: inline-block;
+}
+
+.registro_label{
+	height: 20px;
+	display: inline-block;
+	width: 100%;
+	text-align: right;
+}
+
+.registro_input{
+	display: inline-block;
+	height: 20px;
+}
