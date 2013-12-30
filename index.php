@@ -114,6 +114,7 @@
 		</section>
 		<footer>
 			<h6>(c) 2014 - Jose Salvador Guevara Lunar</h6>
+			<a href="sqlite3.php">SQLite3 Pruebas</a>
 			<form action="http://php">
 				<input type="submit" value="Regresar" />
 			</form>

@@ -1,3 +1,4 @@
+<!--
 <form action="?sel=registro" method="POST">
 	<table>
 		<tr>
@@ -26,16 +27,46 @@
 		</tr>
 	</table>
 </form>
+-->
 
-<?php 
+<form action="?sel=registro" method="POST" class="formulario">
+ <div id="izq" class="registro_caja">
+ 	<label class="registro_label" for="user">Usuario: </label><br/>
+ 	<label class="registro_label" for="nombre">Nombre: </label><br/>
+ 	<label class="registro_label" for="apellido">Apellido: </label><br/>
+ 	<label class="registro_label" for="correo">E-mail: </label><br/>
+ 	<label class="registro_label" for="correov">Confirma email: </label><br/>
+ 	<label class="registro_label" for="clave">Contraseña: </label><br/>
+ 	<label class="registro_label" for="clavev">Confirma Contraseña: </label><br/>
+ </div>
+ <div id="der" class="registro_caja">
+ 	<input class="registro_input" type="text" name="user" id="user" required /><br/>
+ 	<input class="registro_input" type="text" name="nom" id="nombre" required /><br/>
+ 	<input class="registro_input" type="text" name="ape" id="apellido" required /><br/>
+ 	<input class="registro_input" type="email" name="email" id="email" required /><br/>
+ 	<input class="registro_input" type="email" name="emailv" id="emailv" required /><br/>
+ 	<input class="registro_input" type="password" name="pass" id="clave" required /><br/>
+ 	<input class="registro_input" type="password" name="passv" id="clavev" required /><br/>
+ </div>
+ <input type="submit" id="Registro_btn" value="Registrar">
+</form>
 
+<?php  
 if ($_POST) {
+	$user = $_POST['user'];
 	$nom = $_POST['nom'];
 	$ape = $_POST['ape'];
 	$email = $_POST['email'];
 	$emailv = $_POST['emailv'];
 	$pass = $_POST['pass'];
 	$passv = $_POST['passv'];
+
+	//Nombre de la base de datos
+	$db = 'tanteaki.db';
+	//nombre de la tabla de usuarios
+	$tabla_user = 'usuarios';
+	//consulta SQL
+	$consulta = "INSERT INTO ".$tabla_user." (nombre, apellido, email, usuario, clave) VALUES ('".$nom."','".$ape."','".$email."','".$user."','".$pass."');";
 
 	$validar;
 	if ($email != $emailv) {
@@ -46,30 +77,30 @@ if ($_POST) {
 		$validar=false;
 	}else{
 		$validar=true;
-		echo "Se Eviaran los datos a la DB";
+
+		$base = new SQLite3($db);
+
+		$resul = $base->query("SELECT * FROM usuarios WHERE email;");
+
+		while ($dato = $resul->fetchArray()) {
+			if ($dato['email']==$email) {
+				$validar=false;
+				echo "El correo: $email ya se encuentra registrado en la base de datos";
+			}
+		}
+
+		if ($validar) {
+			if ($base->exec($consulta)) {
+				echo "Se Eviaran los datos a la DB";
+			} else {
+				echo "Ops... Ocurrio un error en la base de datos";
+			}			
+			$base->close();
+		}
 	}
 } else {
-	echo "hola xD";
+	echo "<B>Gracias por registrarte el nuestra web<B/>";
 }
 
 
  ?>
-<form action="?sel=registro" method="POST" class="formulario">
- <div id="izq" class="registro_caja">
- 	<label class="registro_label" for="nombre">Nombre: </label><br/>
- 	<label class="registro_label" for="apellido">Apellido: </label><br/>
- 	<label class="registro_label" for="correo">E-mail: </label><br/>
- 	<label class="registro_label" for="correov">Confirma email: </label><br/>
- 	<label class="registro_label" for="clave">Contraseña: </label><br/>
- 	<label class="registro_label" for="clavev">Confirma Contraseña: </label><br/>
- </div>
- <div id="der" class="registro_caja">
- 	<input class="registro_input" type="text" name="nom" id="nombre"><br/>
- 	<input class="registro_input" type="text" name="ape" id="apellido"><br/>
- 	<input class="registro_input" type="email" name="email" id="email"><br/>
- 	<input class="registro_input" type="email" name="emailv" id="emailv"><br/>
- 	<input class="registro_input" type="password" name="pass" id="clave"><br/>
- 	<input class="registro_input" type="password" name="passv" id="clavev"><br/>
- </div>
- <input type="submit" id="Registro_btn" value="Registrar">
-</form>
